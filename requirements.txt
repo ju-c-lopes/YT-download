@@ -1,5 +1,6 @@
 certifi==2022.9.24
 charset-normalizer==2.1.1
+colorama==0.4.5
 decorator==4.4.2
 idna==3.4
 imageio==2.22.1
