@@ -1,8 +1,34 @@
 import colorama
 from colorama import Fore, Style
 from pytube import YouTube
+import os
 import time
-colorama.init(autoreset=True)
+colorama.init
+
+def check_packages():
+    up = False
+
+    # Verificará se o pacote pytube está atualizado
+    tube_pkg = os.popen("pip list -o")
+    pipe = tube_pkg.read()
+    tube_pkg.close()
+    
+    if pipe.find("pytube") != -1:
+        os.system("pip install --upgrade pytube")
+        print("\nPacote PyTube atualizado.")
+        up = True
+    
+    # Verificará se o pacote colorama está atualizado
+    if pipe.find("colorama") != -1:
+        os.system("pip install --upgrade colorama")
+        print("\nPacote Colorama atualizado.")
+        up = True
+    
+    if not up:
+        print("\nSem atualizações de pacotes.")
+    print()
+
+check_packages()
 
 link = input("Enter the link: ")
 yt = YouTube(link)
